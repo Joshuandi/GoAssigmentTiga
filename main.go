@@ -49,20 +49,24 @@ func jsonParsing() {
 	for {
 		status.StatusWater = "aman"
 		status.StatusWind = "aman"
-		status.Water = rand.Intn(100)
-		status.Wind = rand.Intn(100)
-		if status.Water >= 6 && status.Water <= 8 || status.Wind >= 7 && status.Wind <= 15 {
+		status.Water = rand.Intn(20)
+		status.Wind = rand.Intn(20)
+		if status.Water >= 6 && status.Water <= 8 {
 			status.StatusWater = "Siaga"
+		}
+		if status.Wind >= 7 && status.Wind <= 15 {
 			status.StatusWind = "Siaga"
 		}
-		if status.Water > 8 || status.Wind > 15 {
+		if status.Water > 8 {
 			status.StatusWater = "Bahaya"
+		}
+		if status.Wind > 15 {
 			status.StatusWind = "Bahaya"
 		}
 
 		//write json file
 		jsonS, _ := json.Marshal(&status)
 		ioutil.WriteFile(JsonPath, jsonS, os.ModePerm)
-		time.Sleep(15 * time.Second)
+		time.Sleep(10 * time.Second)
 	}
 }
