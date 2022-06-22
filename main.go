@@ -51,17 +51,13 @@ func jsonParsing() {
 		status.StatusWind = "aman"
 		status.Water = rand.Intn(100)
 		status.Wind = rand.Intn(100)
-		if status.Water < 5 || status.Wind < 6 {
-			status.StatusWater = "aman"
-			status.StatusWind = "aman"
-		}
 		if status.Water >= 6 && status.Water <= 8 || status.Wind >= 7 && status.Wind <= 15 {
 			status.StatusWater = "Siaga"
 			status.StatusWind = "Siaga"
 		}
 		if status.Water > 8 || status.Wind > 15 {
-			status.StatusWater = "Siaga"
-			status.StatusWind = "Siaga"
+			status.StatusWater = "Bahaya"
+			status.StatusWind = "Bahaya"
 		}
 
 		//write json file
